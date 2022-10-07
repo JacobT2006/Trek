@@ -5,40 +5,49 @@ from pickletools import stringnl_noescape
 import math as M  
 
 print('''
-+ = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area
++ = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
 ''')
 
 
 stringOne = "THE ANSWER IS: "
 
 def calc():
-    sym = input('Type symbol(+, -, *, /, ^, A): ')
+    sym = input('Type symbol(+, -, *, /, ^, A, S, C, T):\t')
     
     if sym == '+':
-        num1 = input('Number one: ')
-        num2 = input('Number two: ')
+        num1 = input('Number one:\t')
+        num2 = input('Number two:\t')
         out = int(num1) + int(num2)
         print(stringOne, out)
     elif sym == '-':
-        num1 = input('Number one: ')
-        num2 = input('Number two: ')
+        num1 = input('Number one:\t')
+        num2 = input('Number two:\t')
         out = int(num1) - int(num2)
         print(stringOne, out)  
     elif sym == '*':
-        num1 = input('Number one: ')
-        num2 = input('Number two: ')
+        num1 = input('Number one:\t')
+        num2 = input('Number two:\t')
         out = int(num1) * int(num2) 
         print(stringOne, out)
     elif sym == '/':
-        num1 = input('Number one: ')
-        num2 = input('Number two: ')
+        num1 = input('Number one:\t')
+        num2 = input('Number two:\t')
         out = int(num1) / int(num2)
         print(stringOne, out)
     elif sym == '^':
-        num1 = input('Number one: ')
-        num2 = input('Number two: ')
+        num1 = input('Number one:\t')
+        num2 = input('Number two:\t')
         out = int(num1) ** int(num2)
         print(stringOne, out)
+    elif sym == 'S':
+        num1 = int(input("Number:\t"))
+        print(M.sin(num1))
+    elif sym == 'C':
+        num1 = int(input("Number:\t"))
+        print(M.cos(num1))
+    elif sym == 'T':
+        num1 = int(input("Number:\t"))
+        print(M.tan(num1))
     elif sym == 'A':
         
         def area():
@@ -52,33 +61,33 @@ def calc():
                 out = 2 * int(num1)
                 print(stringOne, out)
             elif a == 'R':
-                num1 = input('Base: ')
-                num2 = input('Height: ')
+                num1 = input('Base:\t')
+                num2 = input('Height:\t')
                 out = int(num1) * int(num2)
                 print(stringOne, out)
             elif a == 'P':
-                num1 = input('Base: ')
-                num2 = input('Height: ')
+                num1 = input('Base:\t')
+                num2 = input('Height:\t')
                 out = int(num1) * int(num2)
                 print(stringOne, out)
             elif a == 'T':
-                num1 = input('Base: ')
-                num2 = input('Height: ')
+                num1 = input('Base:\t')
+                num2 = input('Height:\t')
                 out = 0.5(int(num1)) * int(num2)
                 print(stringOne, out)
             elif a == 'Tr':
-                num1 = input('Base one: ')
-                num2 = input('Base two: ')
-                num3 = input('Height: ')
+                num1 = input('Base one:\t')
+                num2 = input('Base two:\t')
+                num3 = input('Height:\t')
                 out = (int(num1) + int(num2))/2 * int(num3)
                 print(stringOne, out)
             elif a == 'E':
-                num1 = input('Major Axis: ')
-                num2 = input('Minor Axis: ')
+                num1 = input('Major Axis:\t')
+                num2 = input('Minor Axis:\t')
                 out = M.pi*(int(num1) * int(num2))
                 print(stringOne, out)
             elif a == 'C':
-                num1 = input('Radius: ')
+                num1 = input('Radius:\t')
                 out = M.pi*int(num1) * int(num1)
                 print(stringOne, out)
         area()
@@ -86,7 +95,7 @@ def calc():
         return calc()
     
     def again():
-        rep = input('Calculate Again(Y or N): ')
+        rep = input('Calculate Again(Y or N):\t')
 
         if rep == 'Y' :
             calc()
