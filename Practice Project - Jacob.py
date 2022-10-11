@@ -1,18 +1,16 @@
-
 from cmath import pi
 from pickletools import stringnl_noescape
 
 import math as M  
-
-print('''
-+ = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
-''')
 
 stringOne = "THE ANSWER IS: "
 
 def calc():
     type = input('Degree(Deg) or Radian(Rad):\t')
     if type == 'Deg':
+        print('''
+        + = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
+        ''')
         sym = input('Type symbol(+, -, *, /, ^, A, S, C, T):\t')
     
         if sym == '+':
@@ -112,6 +110,9 @@ def calc():
         again()
 
     if type == 'Rad':
+        print('''
+        + = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
+        ''')
         sym = input('Type symbol(+, -, *, /, ^, A, S, C, T):\t')
     
         if sym == '+':
