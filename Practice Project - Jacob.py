@@ -1,13 +1,17 @@
+
 from cmath import pi
 from pickletools import stringnl_noescape
 
 import math as M  
 
+
+
 stringOne = "THE ANSWER IS: "
 
 def calc():
-    type = input('Degree(Deg) or Radian(Rad):\t')
-    if type == 'Deg':
+    type = input('''
+    Degree(Deg) or Radian(Rad):\t ''')
+    if type == 'Deg' or 'deg':
         print('''
         + = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
         ''')
@@ -38,59 +42,59 @@ def calc():
             num2 = input('Number two:\t')
             out = int(num1) ** int(num2)
             print(stringOne, out)
-        elif sym == 'S':
+        elif sym == 'S' or 's':
             num1 = int(input("Number:\t"))
             out = M.sin(num1)
             ans = out * M.pi / 180
             print(stringOne, ans)
-        elif sym == 'C':
+        elif sym == 'C' or 'c':
             num1 = int(input("Number:\t"))
             out = M.cos(num1)
             ans = out * M.pi / 180
             print(stringOne, ans)
-        elif sym == 'T':
+        elif sym == 'T' or 't':
             num1 = int(input("Number:\t"))
             out = M.tan(num1)
             ans = out * M.pi / 180
             print(stringOne, ans)
-        elif sym == 'A':
+        elif sym == 'A' or 'a':
             def area():
                 print('''
                  S = Square, R = Rectange, P = Parallelogram, T = Triangle, Tr = Trapezoid, E = Ellipse, C = Circle
                 ''')
                 a = input('Area of a: ')
 
-                if a == 'S':
+                if a == 'S' or 's':
                     num1 = input('Side: ')
                     out = 2 * int(num1)
                     print(stringOne, out)
-                elif a == 'R':
+                elif a == 'R' or 'r':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
                     print(stringOne, out)
-                elif a == 'P':
+                elif a == 'P' or 'p':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
                     print(stringOne, out)
-                elif a == 'T':
+                elif a == 'T' or 't':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = 0.5(int(num1)) * int(num2)
                     print(stringOne, out)
-                elif a == 'Tr':
+                elif a == 'Tr' or 'tr':
                     num1 = input('Base one:\t')
                     num2 = input('Base two:\t')
                     num3 = input('Height:\t')
                     out = (int(num1) + int(num2))/2 * int(num3)
                     print(stringOne, out)
-                elif a == 'E':
+                elif a == 'E' or 'e':
                     num1 = input('Major Axis:\t')
                     num2 = input('Minor Axis:\t')
                     out = M.pi*(int(num1) * int(num2))
                     print(stringOne, out)
-                elif a == 'C':
+                elif a == 'C' or 'c':
                     num1 = input('Radius:\t')
                     out = M.pi*int(num1) * int(num1)
                     print(stringOne, out)
@@ -101,15 +105,15 @@ def calc():
         def again():
             rep = input('Calculate Again(Y or N):\t')
 
-            if rep == 'Y' :
+            if rep == 'Y' or 'y' :
                 calc()
-            elif rep == 'N':
+            elif rep == 'N' or 'n':
                 print('Bye Bye')
             else:
                 again()
         again()
 
-    if type == 'Rad':
+    if type == 'Rad' or 'rad':
         print('''
         + = Addition, - = Subtract, x = Multiply, / = Division, ^ = Power of, A = Area, S = Sine, C = Cosine, T = Tangent
         ''')
@@ -119,89 +123,83 @@ def calc():
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) + int(num2)
-            ans = out * M.pi / 180
-            print(stringOne, ans)
+            print(stringOne, out)
         elif sym == '-':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) - int(num2)
-            ans = out * M.pi / 180
-            print(stringOne, ans)  
+            print(stringOne, out)  
         elif sym == '*':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) * int(num2) 
-            ans = out * M.pi / 180
-            print(stringOne, ans)
+            print(stringOne, out)
         elif sym == '/':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) / int(num2)
-            ans = out * M.pi / 180
-            print(stringOne, ans)
+            print(stringOne, out)
         elif sym == '^':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) ** int(num2)
+            print(stringOne, out)
+        elif sym == 'S' or 's':
+            num1 = int(input("Number:\t"))
+            out = M.sin(num1)
             ans = out * M.pi / 180
             print(stringOne, ans)
-        elif sym == 'S':
+        elif sym == 'C' or 'c':
             num1 = int(input("Number:\t"))
-            print(M.sin(num1))
-        elif sym == 'C':
+            out = M.cos(num1)
+            ans = out * M.pi / 180
+            print(stringOne, ans)
+        elif sym == 'T' or 't':
             num1 = int(input("Number:\t"))
-            print(M.cos(num1))
-        elif sym == 'T':
-            num1 = int(input("Number:\t"))
-            print(M.tan(num1))
-        elif sym == 'A':
+            out = M.tan(num1)
+            ans = out * M.pi / 180
+            print(stringOne, ans)
+        elif sym == 'A' or 'a':
             def area():
                 print('''
                  S = Square, R = Rectange, P = Parallelogram, T = Triangle, Tr = Trapezoid, E = Ellipse, C = Circle
                 ''')
                 a = input('Area of a: ')
 
-                if a == 'S':
+                if a == 'S' or 's':
                     num1 = input('Side: ')
                     out = 2 * int(num1)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'R':
+                    print(stringOne, out)
+                elif a == 'R' or 'r':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'P':
+                    print(stringOne, out)
+                elif a == 'P' or 'p':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'T':
+                    print(stringOne, out)
+                elif a == 'T' or 't':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = 0.5(int(num1)) * int(num2)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'Tr':
+                    print(stringOne, out)
+                elif a == 'Tr' or 'tr':
                     num1 = input('Base one:\t')
                     num2 = input('Base two:\t')
                     num3 = input('Height:\t')
                     out = (int(num1) + int(num2))/2 * int(num3)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'E':
+                    print(stringOne, out)
+                elif a == 'E' or 'e':
                     num1 = input('Major Axis:\t')
                     num2 = input('Minor Axis:\t')
                     out = M.pi*(int(num1) * int(num2))
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
-                elif a == 'C':
+                    print(stringOne, out)
+                elif a == 'C' or 'c':
                     num1 = input('Radius:\t')
                     out = M.pi*int(num1) * int(num1)
-                    ans = out * M.pi / 180
-                    print(stringOne, ans)
+                    print(stringOne, out)
             area()
         else:
             return calc()
@@ -209,12 +207,13 @@ def calc():
         def again():
             rep = input('Calculate Again(Y or N):\t')
 
-            if rep == 'Y' :
+            if rep == 'Y' or 'y' :
                 calc()
-            elif rep == 'N':
+            elif rep == 'N' or 'n':
                 print('Bye Bye')
             else:
                 again()
         again()
 
 calc()
+
