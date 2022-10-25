@@ -1,3 +1,5 @@
+# Created 10/25/22
+# By JacobT2006
 
 from cmath import pi
 from pickletools import stringnl_noescape
@@ -6,7 +8,9 @@ import math as M
 
 
 
-stringOne = "THE ANSWER IS: "
+stringOne = "YOUR CALCULATED ANSWER IS: "
+
+
 
 def calc():
     type = input('''
@@ -62,10 +66,10 @@ def calc():
                 print('''
                  S = Square, R = Rectange, P = Parallelogram, T = Triangle, Tr = Trapezoid, E = Ellipse, C = Circle
                 ''')
-                a = input('Area of a: ')
+                a = input('Area of a:\t')
 
                 if a == 'S' or 's':
-                    num1 = input('Side: ')
+                    num1 = input('Side:\t')
                     out = 2 * int(num1)
                     print(stringOne, out)
                 elif a == 'R' or 'r':
@@ -205,15 +209,27 @@ def calc():
             return calc()
     
         def again():
-            rep = input('Calculate Again(Y or N):\t')
+            repeat = input('Calculate Again(Y or N):\t')
 
-            if rep == 'Y' or 'y' :
+            if repeat == 'Y' or 'y' :
                 calc()
-            elif rep == 'N' or 'n':
-                print('Bye Bye')
+            elif repeat == 'N' or 'n':
+                print('Calculator created by JacobT2006')
             else:
                 again()
         again()
 
 calc()
 
+
+
+
+
+
+
+
+
+
+
+
+#Monkeism
