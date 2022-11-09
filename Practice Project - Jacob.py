@@ -8,9 +8,7 @@ import math as M
 
 
 
-stringOne = "YOUR CALCULATED ANSWER IS: "
-
-
+stringOne = """YOUR CALCULATED ANSWER IS:"""
 
 def calc():
     type = input('''
@@ -25,42 +23,58 @@ def calc():
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) + int(num2)
+            print( "*" * 80)
             print(stringOne, out)
+            print( "*" * 80)
         elif sym == '-':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) - int(num2)
-            print(stringOne, out)  
+            print( "*" * 80)
+            print(stringOne, out)
+            print( "*" * 80)  
         elif sym == '*':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) * int(num2) 
+            print( "*" * 80)
             print(stringOne, out)
+            print( "*" * 80)
         elif sym == '/':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) / int(num2)
+            print( "*" * 80)
             print(stringOne, out)
+            print( "*" * 80)        
         elif sym == '^':
             num1 = input('Number one:\t')
             num2 = input('Number two:\t')
             out = int(num1) ** int(num2)
+            print( "*" * 80)
             print(stringOne, out)
+            print( "*" * 80)
         elif sym == 'S' or 's':
             num1 = int(input("Number:\t"))
             out = M.sin(num1)
             ans = out * M.pi / 180
+            print( "*" * 80)
             print(stringOne, ans)
+            print( "*" * 80)
         elif sym == 'C' or 'c':
             num1 = int(input("Number:\t"))
             out = M.cos(num1)
             ans = out * M.pi / 180
+            print( "*" * 80)
             print(stringOne, ans)
+            print( "*" * 80)
         elif sym == 'T' or 't':
             num1 = int(input("Number:\t"))
             out = M.tan(num1)
             ans = out * M.pi / 180
+            print( "*" * 80)
             print(stringOne, ans)
+            print( "*" * 80)
         elif sym == 'A' or 'a':
             def area():
                 print('''
@@ -71,37 +85,51 @@ def calc():
                 if a == 'S' or 's':
                     num1 = input('Side:\t')
                     out = 2 * int(num1)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'R' or 'r':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'P' or 'p':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = int(num1) * int(num2)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'T' or 't':
                     num1 = input('Base:\t')
                     num2 = input('Height:\t')
                     out = 0.5(int(num1)) * int(num2)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'Tr' or 'tr':
                     num1 = input('Base one:\t')
                     num2 = input('Base two:\t')
                     num3 = input('Height:\t')
                     out = (int(num1) + int(num2))/2 * int(num3)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'E' or 'e':
                     num1 = input('Major Axis:\t')
                     num2 = input('Minor Axis:\t')
                     out = M.pi*(int(num1) * int(num2))
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
                 elif a == 'C' or 'c':
                     num1 = input('Radius:\t')
                     out = M.pi*int(num1) * int(num1)
+                    print( "*" * 80)
                     print(stringOne, out)
+                    print( "*" * 80)
             area()
         else:
             return calc()
@@ -209,12 +237,12 @@ def calc():
             return calc()
     
         def again():
-            repeat = input('Calculate Again(Y or N):\t')
+            rep = input('Calculate Again(Y or N):\t')
 
-            if repeat == 'Y' or 'y' :
+            if rep == 'Y' or 'y' :
                 calc()
-            elif repeat == 'N' or 'n':
-                print('Calculator created by JacobT2006')
+            elif rep == 'N' or 'n':
+                print('Bye Bye')
             else:
                 again()
         again()
@@ -232,4 +260,13 @@ calc()
 
 
 
-#Monkeism
+
+
+
+
+
+
+
+
+
+#monkeism
