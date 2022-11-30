@@ -1,65 +1,83 @@
-
-answer = "Earthbound"
-statement = """The answer is: (1 2 3 4 5 6 7 8 9 10)"""
-
-print(statement)
-
-guessedanswer = input("Guess letter: ")
-
-def guess():
-    health = int(6)
-    wrongguess = int(1)
-
-    guessedanswer = input("Guess letter: ")
-
-    if guessedanswer in answer:
-        print(" {} is correct. ".format(guessedanswer)) 
-
-        if guessedanswer == "e":
-            print(1)
-            answer[-20:] = "E"
-            print(statement)
-        elif guessedanswer == "a":
-            statement.replace('2', 'a')
-            print(statement)
-        elif guessedanswer == "r":
-            statement.replace('3', 'r')
-            print(statement)
-        elif guessedanswer == "t":
-            statement.replace('4', 't')
-            print(statement)
-        elif guessedanswer == "h":
-            statement.replace('5', 'h')
-            print(statement)
-        elif guessedanswer == "b":
-            statement.replace('6', 'b')
-            print(statement)
-        elif guessedanswer == "o":
-            statement.replace('7', 'o')
-            print(statement)
-        elif guessedanswer == "u":
-            statement.replace('8', 'u')
-            print(statement)
-        elif guessedanswer == "n":
-            statement.replace('9', 'n')
-            print(statement)
-        elif guessedanswer == "d":
-            statement.replace('10', 'd')
-            print(statement)
-    elif guessedanswer not in answer:
-        print("Guess is wrong")
-        life = health - wrongguess
-        print("You have", life, "guesses left")
-        return guess()
-    else:
-        return guess()
-
-    
-
-    if health <= 0:
-        print('GAME OVER')
+start = True
 
 
-guess()
+def game():
+    if start == True:
+        import random
+        from collections import Counter
+
+        someWords = '''abarth acura alpine aprillia audi bmw bently bugatti buick cadillac cheverolet chrysler dodge ducati ferrari fiat ford geely honda hyosung hyundai infinity jaguar jeep ktm kawaski kia koenigsegg lamborghini lexus lincoln lotus maserati mazda mclaren mercedes mitsubishi mitsuoka nio nissan norton pagani porsche ram renault rezvani scion seat skoda smart subaru tata tesla toyota triumph ural vauxhall volkswagon yamaha'''
+        someWords = someWords.split(' ')
+        word = random.choice(someWords)
+
+    if __name__ == '__main__':
+        print()
+        print('Guess the word! HINT: word is a name of a car manufacturer')
+     
+        for i in word:
+            print('_', end = ' ')       
+        print()
+
+        playing = True
+        guessedletter = ''               
+        chances = len(word) + 2
+        correct = 0
+        flag = 0
+        try:
+            while (chances != 0) and flag == 0: 
+                print()
+                chances -= 1
+ 
+                try:
+                    guess = str(input('Enter a letter to guess: '))
+                except:
+                    print('Enter only a letter!')
+                    continue
+
+                if not guess.isalpha():
+                    print('Enter only a LETTER')
+                    continue
+                elif len(guess) > 1:
+                    print('Enter only a SINGLE letter')
+                    continue
+                elif guess in guessedletter:
+                    print('You have already guessed that letter')
+                    continue
+
+                if guess in word:
+                    k = word.count(guess) 
+                    for _ in range(k):   
+                        guessedletter += guess 
+
+                for char in word:
+                    if char in guessedletter and (Counter(guessedletter) != Counter(word)):
+                        print(char, end = ' ')
+                        correct += 1
+                    elif (Counter(guessedletter) == Counter(word)):
+                        print("The word is: ", end=' ')
+                        print(word)
+                        flag = 1
+                        print('You win!')
+                        return game()
+                    else:
+                        print('_', end = ' ')
+ 
+            if chances <= 0 and (Counter(guessedletter) != Counter(word)):
+                print()
+                print('L! Try again..')
+                print('The word was {}'.format(word))
+                return game()
+            
+
+        except KeyboardInterrupt:
+            print()
+            print('See ya! Try again.')
+
+game()
+
+
+
+
+
 
 #Monkeism
