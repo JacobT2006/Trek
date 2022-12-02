@@ -6,13 +6,15 @@ def game():
         import random
         from collections import Counter
 
-        someWords = '''abarth acura alpine aprillia audi bmw bently bugatti buick cadillac cheverolet chrysler dodge ducati ferrari fiat ford geely honda hyosung hyundai infinity jaguar jeep ktm kawaski kia koenigsegg lamborghini lexus lincoln lotus maserati mazda mclaren mercedes mitsubishi mitsuoka nio nissan norton pagani porsche ram renault rezvani scion seat skoda smart subaru tata tesla toyota triumph ural vauxhall volkswagon yamaha'''
+        someWords = '''abarth acura alpine aprillia audi bmw bently bugatti buick cadillac cheverolet chrysler dodge ducati ferrari fiat ford geely honda 
+        hyosung hyundai infinity jaguar jeep ktm kawaski kia koenigsegg lamborghini lexus lincoln lotus maserati mazda mclaren mercedes mitsubishi mitsuoka 
+        nio nissan norton pagani porsche ram renault rezvani scion seat skoda smart subaru tata tesla toyota triumph ural vauxhall volkswagon yamaha'''
         someWords = someWords.split(' ')
         word = random.choice(someWords)
 
     if __name__ == '__main__':
         print()
-        print('Guess the word! HINT: word is a name of a car manufacturer')
+        print('Guess the word! HINT: The word is a name of a car manufacturer')
      
         for i in word:
             print('_', end = ' ')       
@@ -58,7 +60,12 @@ def game():
                         print(word)
                         flag = 1
                         print('You win!')
-                        return game()
+                        print()
+                        endgame = input("Would you like to continue(Y / N)?")
+                        if endgame == "Y":
+                            return game()
+                        else:
+                            print("See ya!")
                     else:
                         print('_', end = ' ')
  
@@ -66,15 +73,18 @@ def game():
                 print()
                 print('L! Try again..')
                 print('The word was {}'.format(word))
-                return game()
+                print()
+                endgame = input("Would you like to continue(Y / N)?")
+                if endgame == "Y" or "y":
+                    return game()
+                else:
+                    print("See ya!")
             
-
         except KeyboardInterrupt:
             print()
             print('See ya! Try again.')
 
 game()
-
 
 
 
