@@ -6,9 +6,9 @@ def game():
         import random
         from collections import Counter
 
-        someWords = '''abarth acura alpine aprillia audi bmw bently bugatti buick cadillac cheverolet chrysler dodge ducati ferrari fiat ford geely honda 
-        hyosung hyundai infinity jaguar jeep ktm kawaski kia koenigsegg lamborghini lexus lincoln lotus maserati mazda mclaren mercedes mitsubishi mitsuoka 
-        nio nissan norton pagani porsche ram renault rezvani scion seat skoda smart subaru tata tesla toyota triumph ural vauxhall volkswagon yamaha'''
+        someWords = '''abarth acura alpine aprillia audi bmw bently bugatti buick cadillac cheverolet chrysler dodge ducati ferrari fiat ford geely honda hyosung 
+        hyundai infinity jaguar jeep ktm kawaski kia koenigsegg lamborghini lexus lincoln lotus maserati mazda mclaren mercedes mitsubishi mitsuoka nio nissan 
+        norton pagani porsche ram renault rezvani scion seat skoda smart subaru tata tesla toyota triumph ural vauxhall volkswagon yamaha'''
         someWords = someWords.split(' ')
         word = random.choice(someWords)
 
@@ -62,10 +62,11 @@ def game():
                         print('You win!')
                         print()
                         endgame = input("Would you like to continue(Y / N)?")
-                        if endgame == "Y":
+                        if endgame == "Y" or 'y':
                             return game()
                         else:
                             print("See ya!")
+                            quit()
                     else:
                         print('_', end = ' ')
  
@@ -75,18 +76,24 @@ def game():
                 print('The word was {}'.format(word))
                 print()
                 endgame = input("Would you like to continue(Y / N)?")
-                if endgame == "Y" or "y":
+                if endgame == str('Y' or 'y') :
+                    print('lets play')
                     return game()
                 else:
-                    print("See ya!")
+                    print('Bye Bye')
+                    quit()
+                # if endgame == "Y" or "y":
+                #     print("Lets play!")
+                #     quit()
+                # else:
+                #     print("See ya!")
+                #     quit()
             
         except KeyboardInterrupt:
             print()
             print('See ya! Try again.')
 
 game()
-
-
 
 
 
