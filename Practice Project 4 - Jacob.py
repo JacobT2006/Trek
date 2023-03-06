@@ -1,10 +1,12 @@
 import turtle
 import time
 
+goal = False
 
 # screen color
 sc = turtle.Screen()
 sc.bgcolor("Gray")
+
 
 # text
 write = turtle.Turtle()
@@ -20,61 +22,56 @@ sc.update()
 # object 1: stage 1
 square = turtle.Turtle()
 square.speed(0)
-square.hideturtle()
 square.penup()
-square.goto(-50, 200)
-square.pendown()
-def sqre():
-    square.fillcolor("red")
-    square.begin_fill()
-    square.color("red")
-    for _ in range(4):
-        square.forward(100)
-        square.left(90)
-    square.end_fill()
-sqre()
+square.goto(0, 200.0)
+square.color("red")
+square.shape("square")
+square.shapesize(stretch_wid=2, stretch_len=2)
+
 
 # object 2: stage 1
 circle = turtle.Turtle()
 circle.penup()
-circle.goto(0, -50)
+circle.goto(0, -50.0)
 circle.shape("circle")
-circle.shapesize(stretch_wid=4, stretch_len=4)
+circle.shapesize(stretch_wid=2, stretch_len=2)
 
 def squaredown():
+        
         square.clear()
         sc.update()
         y = square.ycor()
         #y = round(y)
-        y -= 100
-        square.sety(y)        
-        sqre()
+        y -= 50.0
+        square.sety(y)
+        print("y =", y)  
+        if square.ycor() == -50:
+            goal = True    
+        
         
 turtle.listen()
 turtle.onkey(squaredown, 'Down')
 
 
 # stage 2
-if square.ycor == -99.999999:
+if goal == True:
+    print ("hi")
+    
     circle.clear()
     square.clear()
+    circle.hideturtle()
+    square.hideturtle()
     sc.update()
+    
+    
     # object 1: stage 2
     square1 = turtle.Turtle()
     square1.speed(0)
-    square1.hideturtle()
     square1.penup()
-    square1.goto(-50, 200)
-    square1.pendown()
-    def sqre1():
-        square1.fillcolor("red")
-        square1.begin_fill()
-        square1.color("red")
-        for _ in range(4):
-            square1.forward(100)
-            square1.left(90)
-        square1.end_fill()
-    sqre1()
+    square1.goto(0, 200)
+    square1.color("red")
+    square1.shape("square")
+    square1.shapesize(stretch_wid=2, stretch_len=2)
 
     # object 2: stage 2
     square2 = turtle.Turtle()
@@ -92,6 +89,7 @@ if square.ycor == -99.999999:
             square2.left(90)
         square2.end_fill()
     sqre2()
+    square.shapesize(stretch_wid=2, stretch_len=2)
 
     # object 3: stage 2
     circle1 = turtle.Turtle()
@@ -110,7 +108,7 @@ if square.ycor == -99.999999:
     def square1down():
         square1.clear()
         sc.update()
-        y = square1.ycor()
+        y : int = square1.ycor()
         y -= 100
         square1.sety(y)        
         sqre1()
@@ -145,6 +143,12 @@ while 0 == 0:
         error.left(90)
 
 turtle.done()
+
+
+
+
+
+
 
 
 
