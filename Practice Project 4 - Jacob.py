@@ -1,8 +1,6 @@
 import turtle
 import time
 
-goal = False
-
 # screen color
 sc = turtle.Screen()
 sc.bgcolor("Gray")
@@ -12,8 +10,9 @@ sc.bgcolor("Gray")
 write = turtle.Turtle()
 write.hideturtle()
 write.penup()
-write.goto(-200, 0)
-write.write("Press down arrow to move red and W key to move blue", font=("Verdana", 15, "normal"))
+write.goto(-150, 0)
+write.write("""Press 1 key to move red square to red circle
+and 2 key to move blue square to blue circle""", font=("Verdana", 15, "normal"))
 time.sleep(1)
 write.clear()
 sc.update()
@@ -31,125 +30,103 @@ square.shapesize(stretch_wid=2, stretch_len=2)
 
 # object 2: stage 1
 circle = turtle.Turtle()
+circle.color("red")
 circle.penup()
 circle.goto(0, -50.0)
 circle.shape("circle")
 circle.shapesize(stretch_wid=2, stretch_len=2)
 
+# object 3: stage 1
+# arrow = turtle.Turtle()
+# arrow.shape("arrow")
+# arrow.penup()
+# arrow.shapesize(stretch_wid=1, stretch_len=2)
+# arrow.goto(square.xcor(), square.ycor())
+# arrow.towards(circle.xcor(), circle.ycor())
+# if arrow.xcor() != square.xcor() and arrow.ycor() != square.ycor():
+#     arrow.goto(square.xcor(), square.ycor())
+
 def squaredown():
-        
         square.clear()
         sc.update()
         y = square.ycor()
-        #y = round(y)
         y -= 50.0
-        square.sety(y)
-        print("y =", y)  
-        if square.ycor() == -50:
-            goal = True    
+        square.sety(y)    
         
+# stage 2
+        if y == -50:
+            circle.clear()
+            square.clear()
+            #arrow.clear()
+            circle.hideturtle()
+            square.hideturtle()
+            #arrow.hideturtle()
+            sc.update()
+    
+    
+# object 1: stage 2
+            square1 = turtle.Turtle()
+            square1.speed(0)
+            square1.penup()
+            square1.goto(0, 200)
+            square1.color("red")
+            square1.shape("square")
+            square1.shapesize(stretch_wid=2, stretch_len=2)
+
+# object 2: stage 2
+            square2 = turtle.Turtle()
+            square2.speed(0)
+            square2.penup()
+            square2.goto(0, -200)
+            square2.color("blue")
+            square2.shape("square")
+            square2.shapesize(stretch_wid=2, stretch_len=2)
+
+ # object 3: stage 2
+            circle1 = turtle.Turtle()
+            circle1.color("red")
+            circle1.penup()
+            circle1.goto(-250, 200)
+            circle1.shape("circle")
+            circle1.shapesize(stretch_wid=2, stretch_len=2)
+
+# object 4: stage 2
+            circle2 = turtle.Turtle()
+            circle2.color("blue")
+            circle2.penup()
+            circle2.goto(0, 150)
+            circle2.shape("circle")
+            circle2.shapesize(stretch_wid=2, stretch_len=2)
+
+            def square1side():
+                square1.clear()
+                sc.update()
+                x = square1.xcor()
+                x -= 50
+                square1.setx(x)
+                if square1.xcor() == circle1.xcor() and square1.ycor() == circle1.xcor():
+                    print("1 done")        
+    
+            def square2up():
+                square2.clear()
+                sc.update()
+                y = square2.ycor()
+                y += 50
+                square2.sety(y)
+                if square2.xcor() == circle2.xcor() and square2.ycor() == circle2.ycor():
+                    print("2 done")
+                
+            
+            
+            turtle.listen()
+            turtle.onkey(square1side, '1')
+            turtle.onkey(square2up, '2')
+
         
 turtle.listen()
-turtle.onkey(squaredown, 'Down')
-
-
-# stage 2
-if goal == True:
-    print ("hi")
-    
-    circle.clear()
-    square.clear()
-    circle.hideturtle()
-    square.hideturtle()
-    sc.update()
-    
-    
-    # object 1: stage 2
-    square1 = turtle.Turtle()
-    square1.speed(0)
-    square1.penup()
-    square1.goto(0, 200)
-    square1.color("red")
-    square1.shape("square")
-    square1.shapesize(stretch_wid=2, stretch_len=2)
-
-    # object 2: stage 2
-    square2 = turtle.Turtle()
-    square2.speed(0)
-    square2.hideturtle()
-    square2.penup()
-    square2.goto(-50, -200)
-    square2.pendown()
-    def sqre2():
-        square2.fillcolor("red")
-        square2.begin_fill()
-        square2.color("blue")
-        for _ in range(4):
-            square2.forward(100)
-            square2.left(90)
-        square2.end_fill()
-    sqre2()
-    square.shapesize(stretch_wid=2, stretch_len=2)
-
-    # object 3: stage 2
-    circle1 = turtle.Turtle()
-    circle1.hideturtle()
-    #circle1.goto()
-    circle1.shape("circle")
-    circle1.shapesize(stretch_wid=4, stretch_len=4)
-
-    # object 4: stage 2
-    circle2 = turtle.Turtle()
-    circle2.hideturtle()
-    #circle2.goto()
-    circle2.shape("circle")
-    circle2.shapesize(stretch_wid=4, stretch_len=4)
-
-    def square1down():
-        square1.clear()
-        sc.update()
-        y : int = square1.ycor()
-        y -= 100
-        square1.sety(y)        
-        sqre1()
-    
-    def square2up():
-        square2.clear()
-        sc.update()
-        y = square2.ycor()
-        y += 100
-        square2.penup()
-        square2.sety(y)  
-        square2.pendown()      
-        sqre2()
-
-
-
-    turtle.onkey(square1down, 'Down')
-    turtle.onkey(square2up, 'w')
-    turtle.listen()
-
-
-
-
-error = turtle.Turtle()
-while 0 == 0:
-    error.hideturtle()
-    error.penup()
-    error.goto(1000, 1000)
-    error.pendown()
-    for _ in range(4):
-        error.forward(100)
-        error.left(90)
+turtle.onkey(squaredown, '1')
 
 turtle.done()
-
-
-
-
-
-
-
 
 
 
