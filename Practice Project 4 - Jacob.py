@@ -1,8 +1,6 @@
 import turtle
 import time
 
-
-
 # screen color
 sc = turtle.Screen()
 sc.bgcolor("Gray")
